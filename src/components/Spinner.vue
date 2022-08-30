@@ -1,5 +1,5 @@
 <template>
-  <div class="spin"></div>
+  <div class="spin" />
 </template>
 
 <style>

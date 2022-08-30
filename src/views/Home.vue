@@ -1,31 +1,23 @@
 <template>
-  <div v-if="error">{{ error }}</div>
-  <div v-if="posts.length" class="posts">
-    <PostList :posts="posts"/>
-    <TagCloud :posts="posts"/>
-  </div>
-  <div v-else>
-    <Spinner/>
-  </div>
+  <PureHome :error="error" />
 </template>
 
 <script>
-import getPosts from '../composables/getPosts'
-import { useRoute } from 'vue-router'
-import Spinner from '../components/Spinner.vue'
-import PostList from '../components/PostList.vue'
-import TagCloud from '../components/TagCloud.vue'
-
+import PureHome from './PureHome.vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 export default {
-  components: { Spinner, PostList, TagCloud },
-  
-  setup(props) {
-    const route = useRoute()
-    
-    const { error, posts, load } = getPosts()
+  name: 'Home',
+  components: { PureHome },
+  setup() {
+    //const route = useRoute()
+    const store = useStore()
 
-    load()
-    return { error, posts }
+    const error = computed(() => store.state.error);
+    //const { error, posts, load } = getPosts()
+
+    //load()
+    return { error }
   },
 }
 </script>

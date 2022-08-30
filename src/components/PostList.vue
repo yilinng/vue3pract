@@ -1,31 +1,31 @@
 <template>
-  <main class="post-list">
-      <div v-for="post in posts" :key="post.id" data-test="postList">
-          <!-- <h3>{{ post.title }}</h3> -->
-          <SinglePost :post="post" @clickItem="onClickChild"/>
-      </div>
-  </main>
-
+  <PurePostList
+    :posts="posts"
+    @deletePost="onDeletePost"
+  />
 </template>
 
 <script>
-import { ref } from 'vue'
-// component imports
-import SinglePost from './SinglePost.vue'
+import PurePostList from './PurePostList.vue'
+
+import { computed } from 'vue'
+
+import { useStore } from 'vuex';
 
 export default {
-  props: ['posts'],
-  components: { SinglePost },
+  name: 'PostList',
+  components: { PurePostList },
   setup() {
-    const postChange = ref(null)
+    //👇 Creates a store instance
+    const store = useStore()
 
-    const onClickChild = (val) => {
+    //👇 Retrieves the tasks from the store's state
+    const posts = computed(() => store.state.posts);
 
-      postChange.value = val.value
-      console.log(postChange.value)
-    }
+    //👇 Dispatches the actions back to the store
+    const onDeletePost = post => store.dispatch('deletePost', post);
 
-    return {onClickChild, postChange}
+    return { posts, onDeletePost }
   }
 }
 </script>

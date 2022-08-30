@@ -2,19 +2,20 @@
   <div class="create">
     <form @submit.prevent="handleSubmit">
       <label>Title:</label>
-      <input v-model="title" type="text" required>
+      <input v-model="title" type="text" name="title" required>
       <label>Content:</label>
-      <textarea v-model="body" required></textarea>
+      <textarea v-model="body" name="body" required></textarea>
       <label>Tags (hit enter to add a tag):</label>
       <input
         @keydown.enter.prevent="handleKeydown"
         v-model="tag"
         type="text"
+        name="tag"
       >
       <div v-for="tag in tags" :key="tag" class="pill">
         #{{ tag }}
       </div>
-      <button>Add Post</button>
+      <button type="submit">Add Post</button>
     </form>
   </div>
 </template>
@@ -23,6 +24,10 @@
 import { ref } from 'vue'
 import { useRouter} from 'vue-router'
 export default {
+  name: 'Create',
+  props: {
+
+  },
   setup() {
     const title = ref('')
     const body = ref('')

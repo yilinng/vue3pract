@@ -8,14 +8,20 @@
     >
       {{ todo.text }}
       <input
-        type="checkbox"
         v-model="todo.completed"
+        type="checkbox"
         data-test="todo-checkbox"
-      />
+      >
     </div>
 
-    <form data-test="form" @submit.prevent="createTodo">
-      <input data-test="new-todo" v-model="newTodo" />
+    <form
+      data-test="form"
+      @submit.prevent="createTodo"
+    >
+      <input
+        v-model="newTodo"
+        data-test="new-todo"
+      >
     </form>
   </div>
 </template>
