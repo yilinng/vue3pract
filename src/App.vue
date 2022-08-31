@@ -1,7 +1,7 @@
 <template>
   <div class="allpage">
-  <Navbar />
-  <router-view></router-view>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 

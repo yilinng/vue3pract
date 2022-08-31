@@ -9,9 +9,7 @@ const useTags = (posts: any) => {
 
   const tags: Ref<any[]>= ref([])
   const tagSet = new Set()
-
-  console.log(posts, 'from useTag')
-
+  
   posts.forEach( (item: any) => {
     item.tags.forEach((tag: any) => tagSet.add(tag))
   })

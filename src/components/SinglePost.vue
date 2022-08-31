@@ -14,10 +14,7 @@
         :to="{
           name: 'Edit',
           params: {
-            id: post.id,
-            title: post.title,
-            body: post.body,
-            tags: post.tags,
+            id: post.id
           },
         }"
         class="edit"
