@@ -10,13 +10,13 @@ yarn install
 
 # https://www.npmjs.com/package/json-server
 
-# 1.Install JSON Server
+#### 1.Install JSON Server
 
 ```
 yarn install -g json-server
 ```
 
-# 2.Start JSON Server
+#### 2.Start JSON Server
 
 ```
 json-server --watch data/data.json
