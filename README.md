@@ -1,4 +1,4 @@
-# pizzavue
+# vuePract
 
 ## Project setup
 
@@ -10,8 +10,10 @@ yarn install
 
 ### https://www.npmjs.com/package/json-server
 
-1.Install JSON Server -> yarn install -g json-server
-2.Start JSON Server -> json-server --watch data/data.json
+1.Install JSON Server -> yarn install -g json-server <br />
+2.Start JSON Server -> json-server --watch data/data.json <br />
+
+### open new cmd
 
 ### Compiles and hot-reloads for development
 
